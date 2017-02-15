@@ -1,0 +1,710 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+;background = #222
+background = #0d000000
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #55
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[settings]
+; The throttle settings lets the eventloop swallow up til X events
+; if they happen within Y millisecond after first event was received.
+; This is done to prevent flood of update event.
+;
+; For example if 5 modules emit an update event at the same time, we really
+; just care about the last one. But if we wait too long for events to swallow
+; the bar would appear sluggish so we continue if timeout
+; expires or limit is reached.
+throttle-output = 5
+throttle-output-for = 10
+
+throttle-input-for = 30
+
+screenchange-reload = true
+
+
+
+[bar/top]
+monitor = ${env:MONITOR:DVI-D-0}
+bottom = false
+width = 100%
+height = 30
+offset-x = 0
+offset-y = 0
+;background-1= #000
+;background-8 = #00f
+;background-9 = ${colors.background}
+background = #222
+;${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+overline-color = #f00
+underline-size = 2
+underline-color = #00f
+
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = hack:pixelsize=14;1
+font-1 = unifont:size=6:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=10;0
+font-3 = FontAwesome:pixelsize=14;0
+
+modules-left = cpu memory filesystem 
+modules-center = 
+modules-right = xwindow
+;modules-right = backlight volume pkg wlan vpncheck battery date powermenu
+
+;tray-position = left
+;tray-padding = 4
+
+
+[bar/bottom]
+monitor = ${env:MONITOR:DVI-D-0}
+bottom = true
+width = 100%
+height = 38
+offset-x = 0
+offset-y = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+overline-color = #f00
+underline-size = 3
+underline-color = #00f
+
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = hack:pixelsize=14;1
+font-1 = unifont:size=6:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=10;0
+font-3 = FontAwesome:pixelsize=22;4
+font-4 = hack:pixelsize=7;8
+
+modules-left =  i3
+modules-center =
+modules-right = 
+;modules-right = backlight volume pkg wlan vpncheck battery date powermenu
+
+;tray-position = left
+;tray-padding = 4
+
+[bar/bottom3]
+monitor = ${env:MONITOR:HDMI-A-0}
+bottom = true
+width = 100%
+height = 39
+margin-bottom = 0 
+offset-x = 0
+offset-y = 0
+background = ${colors.background}
+;background-4 = ${colors_background}
+foreground =  #eeffee
+;${colors.foreground}
+;radius = 2.0
+overline-size = 0
+;overline-color = #f00
+overline-color = #f00
+underline-size = 3
+;underline-color = #ffffff
+;enable-ipc = true
+powermenu1-command =  
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = hack:pixelsize=12;2
+font-1 = unifont:size=6:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=10;0
+font-3 = FontAwesome:pixelsize=22;4
+font-4 = FontAwesome:pixelsize=14;2
+font-5 = hack:pixelsize=7;8
+
+modules-left = i32 
+modules-center = powermenu1 
+;fortune
+modules-right = wlan date date2 pkgupdates-available 
+;volume2nable-ipc = true
+;modules-right = backlight volume pkg wlan vpncheck battery date powermenu
+
+tray-transparent = true
+tray-position = right
+tray-padding = 0
+
+[bar/bottom4]
+monitor = ${env:MONITOR2:HDMI-A-0}
+bottom = true
+width = 13%
+height = 20
+offset-x = 220
+offset-y = 0
+override-redirect = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+;padding = 20
+
+overline-size = 0
+;overline-color = #f00
+overline-color = #f00
+underline-size = 2
+underline-color = #33A1DE
+
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
+
+spacing = 1
+;padding-left = 0
+;padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = hack:pixelsize=12;1
+font-1 = unifont:size=6:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=10;0
+font-3 = FontAwesome:pixelsize=14;0
+
+modules-left =  
+modules-center = 
+modules-right = i33
+
+
+[bar/top2]
+monitor = ${env:MONITOR2:HDMI-A-0}
+bottom = false
+width = 210
+height = 25
+offset-x = 0
+offset-y = 0
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 0
+overline-color = #f00
+underline-size = 2
+underline-color = #00f
+
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = hack:pixelsize=12;1
+font-1 = unifont:size=6:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=10;0
+font-3 = FontAwesome:pixelsize=14;0
+
+modules-left = i3 
+modules-center = 
+modules-right = 
+;modules-right = backlight volume pkg wlan vpncheck battery date powermenu
+
+;tray-transparent = false
+;tray-position = right
+;tray-padding = 4
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = true
+pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+;label-focused = %index%
+label-focused = %name%
+label-focused-foreground = #f3f99d
+
+label-focused-background = #b32b313a
+;#787B85
+label-unfocused-background = #b34c5666
+
+
+label-focused-underline= #f3f99d
+label-focused-padding = 1
+;%{u#ff9900 +u}
+
+label-unfocused = %name%
+label-unfocused-padding = 1
+;label-unfocused-background = #fcfcfc
+
+label-urgent = %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+ws-icon-0 = 11;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+[module/i32]
+type = internal/i3
+format = <label-state>  | <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = true
+pin-workspaces = true
+
+label-mode-padding = 1
+label-state-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+;label-focused = %index% 
+label-focused = %name% 
+;%index%
+;label-focused = %{u#4286f4 F#4286f4 }%name% 
+;label-focused-background = #787B85
+label-focused-foreground = #0092FF
+;#ff729f
+;${colors.background-alt}
+label-focused-underline= #0092FF
+;#ff729f
+
+label-focused-padding = 1
+;%{u#ff9900 +u}
+
+label-focused-background = #b32b313a
+;#787B85
+label-unfocused-background = #b34c5666
+
+
+label-unfocused = %name%
+label-unfocused-padding = 1
+;label-unfocused-background = #888A90
+label-unfocused-foreground = #ffffff
+;#ffffff
+
+label-urgent = %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+[module/i33]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = true
+strip-wsnumbers = true
+pin-workspaces = true
+
+ws-icon-0 = "19:1 "
+ws-icon-19 = "20: "
+ws-icon-2 = "21: "
+ws-icon-3 = "22:  "
+ws-icon-default = ♟
+
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+label-focused = %index%
+;label-focused = %icon%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= #33A1DE
+label-focused-padding = 2
+;%{u#ff9900 +u}
+
+label-unfocused = %name%
+label-unfocused-padding = 2
+label-unfocused-background = #fcfcfc
+
+label-urgent = %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <ramp-coreload> <label>
+;format = 
+;format-prefix =
+;format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #eeff91
+label = %percentage%%
+ramp-coreload-0 = %{F#5b}▁%{F-}
+ramp-coreload-1 = %{F#5b}▂%{F-}
+ramp-coreload-2 = %{F#5b}▃%{F-}
+ramp-coreload-3 = %{F#ff5c57}▄%{F-}
+ramp-coreload-4 = %{F#ff5c57}▅%{F-}
+ramp-coreload-5 = %{F#ff5c57}▆%{F-}
+ramp-coreload-6 = %{F#ff5c57}▇%{F-}
+ramp-coreload-7 = %{F#ff5c57}█%{F-}
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+;label =  %percentage_used%%
+label =  %percentage_used%% 
+label-underline = #eeff91
+;label-foreground = ${colors.white}
+
+
+[module/volume]
+type = internal/volume
+;master-mixer = Master
+;speaker-mixer = Speaker
+;headphone-mixer = Headphone
+;headphone-id = 9
+format-volume =  
+;label-volume = VOL %percentage%
+label-muted =  
+format-volume-underline = #eeff91
+
+[module/volume2]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+label-volume = ""
+;label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = " "
+;format-muted-foreground = ${colors.foreground-alt}
+label-muted = muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = │
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+;bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+[module/wlan]
+type = internal/network
+interface = wlp0s18f2u4
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-prefix = %{T5} %{T-} 
+format-connected-prefix-foreground = #ffffff
+;#5b
+
+format-connected-underline = #0092FF
+;#9f78e1
+;format-disconnected-underline = ${self.format-connected-underline}
+
+label-connected = "%signal%% %{A1:connman-gtk &:}%essid%%{A}"
+label-disconnected = "%{A1:connman-gtk &:}%{A}"
+label-disconnected-foreground = #5b
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+date-alt =  %{T5} %{T-} %A  
+date =   %{T5} %{T-} %b/%d/%y 
+; %-l:%M%P 
+interval = 5
+
+format-underline = #0092FF
+format-foreground = #efefef
+format-padding = 1
+
+[module/date2]
+type = internal/date
+date-alt =   %A %H:%M 
+date =   %{T5} %{T-}%-l:%M%P 
+interval = 5
+
+format-underline = #0092FF
+;#52dfb8
+format-foreground = #efefef
+format-padding = 1
+
+[module/xwindow]
+type = internal/xwindow
+label = "   %{F#5b5b5b}%{F-} %title:0:70:...%"
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+;mount-1 = /home
+;mount-2 = /invalid/mountpoint
+
+label-mounted =  %free%
+label-mounted-underline = #eeff99
+label-mounted-padding = 1
+
+;label-unmounted =
+;label-unmounted-foreground = ${colors.black}
+
+[module/mpd]
+type = internal/mpd
+
+host = 192.168.2.125
+port = 6600
+;password = mysecretpassword
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+;format-online = <label-song> <icon-play> <icon-pause> <icon-prev> <icon-next> 
+format-online = <label-song> <icon-prev> <icon-play> <icon-pause>  <icon-next> 
+format-offline = <label-offline>
+
+label-offline =  no music
+;label-offline-foreground = ${colors.gray}
+
+label-song = %artist% - %title%
+label-song-maxlen = 95
+label-song-ellipsis = true
+
+icon-prev = 
+icon-seekb = <<
+icon-stop = o
+;icon-pause = 
+icon-pause =  
+icon-play = 
+;icon-play = 
+icon-next = 
+icon-seekf = >>
+icon-random = S
+icon-repeat = R
+toggle-on-foreground = #e60053
+toggle-off-foreground = #66
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open =  
+label-open-foreground = ${colors.foreground}
+label-close =  cancel
+label-close-foreground = ${colors.foreground}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = systemctl reboot
+
+menu-2-0 = power off
+menu-2-0-exec = systemctl poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[module/blankmenu]
+type = custom/menu
+format-spacing = 1
+label-open = TEST
+label-open-padding = 42
+label-open-foreground = #ffffff
+label-open-background = #0d000000 
+label-close = TITS
+label-close-foreground = #bff442
+label-separator = |
+label-separator-foreground = #c842f4
+menu-0-0 = NO
+menu-0-0-exec = menu-open-2
+menu-2-0 = WAY
+menu-2-0-exec = systemctl poweroff
+
+[module/powermenu1]
+type = custom/menu
+
+format-spacing = 2
+format-padding = 15
+;format-padding-right = 5
+;format-padding-background = #0d000000 
+format-spacing-background = #0d000000 
+
+
+format = <label-toggle> <menu>
+;label-fart = poop
+label-open =  %{T5}%{T-} 
+label-open-foreground = #ffffff
+label-open-background = #0d000000 
+;#faedff
+;label-open-padding = 55
+;label-open-padding-right = 50
+label-close = %{T5} %{T-} 
+label-close-foreground = #0092FF
+;#00a0b2
+;#ff729f
+;#bff442
+label-close-padding = 2
+label-close-background = #0d000000 
+label-separator = |
+label-separator-foreground = #fff
+label-separator-background = #0d000000 
+
+
+menu-0-1 = %{T5}%{T-} 
+menu-0-1-exec = systemctl reboot
+menu-0-1-background = #0d000000 
+menu-0-2 =  %{T5} %{T-} 
+;
+menu-0-2-exec = systemctl poweroff
+menu-0-2-background = #0d000000 
+menu-0-0 = %{T5}%{T-} 
+;
+
+menu-0-0-exec = i3lockb
+menu-0-0-background = #0d000000 
+;menu-0-2-exec = ~/.i3/i3lock-fancy-multimonitor/lock
+menu-0-3 = ${root.powermenu1-command}
+menu-0-3-exec = menu-open-
+menu-0-3-background = #0d000000 
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-2
+menu-1-1 = reboot
+menu-1-1-exec = systemctl reboot
+
+menu-2-0 = power off
+menu-2-0-exec = systemctl poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = LOCK
+menu-3-0-exec = ./i3-lock.sh
+menu-3-1 = SCREEN
+menu-3-1-exec = menu-open-3
+
+;menu-4-0 = COM
+;menu-4-0-exec = systemctl poweroff
+;menu-4-1 = AUR
+;menu-4-1-exec = menu-open-0
+
+[module/pkgupdates-available]
+type = custom/script
+format-spacing = 0
+format-padding = 0
+; Available tokens:
+;   %counter%
+; Command to be executed (using "/usr/bin/env sh -c [command]")
+exec = /home/patrick/.config/polybar/pkg.sh
+interval = 860
+format = %{T3}<label>
+;format-foreground = #eeff91 
+format-background = #0d000000 
+format-underline = #fff
+
+label = "%output:0:30%"
+;label-alt = "safasf"
+;exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+
+[module/subscriber]
+type = internal/ipc
+
+; Define the command to be executed when the hook is triggered
+; Available tokens:
+;   %pid% (id of the parent polybar process)
+hook-0 = date
+hook-1 = whoami
+hook-2 = echo "Files in ${HOME}: $(ls -1a ~ | wc -l)"
+
+; Hook to execute on launch. The index is 1-based and using
+; the example below (2) `whoami` would be executed on launch.
+; Default: 0
+initial = 2
+
+[module/fortune]
+type = custom/script
+exec = fortune darkknight | zscroll -l 10 -d 0.1 -n 
+interval = 0
+
+format = %{T6}<label>
+; Available tokens:
+;   %output%
+; Default: %output%
+label = %output:0:35%...
