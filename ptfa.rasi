@@ -1,0 +1,107 @@
+/**
+ * User: Qball
+ * Copyright: Dave Davenport
+ */
+* {
+    foreground:  #eeffee;
+    background:  rgba(0,0,0,0);
+    dark: #1c1c1c;
+    // Black
+    black:       #3d352a;
+    lightblack:  #554444;
+    //
+    // Red
+    red:         #cd5c5c;
+    lightred:    #cc5533;
+    //
+    // Green
+    green:       #86af80;
+    lightgreen:  #88cc22;
+    barback:     #2b313a;
+    //
+    // Yellow
+    yellow:      #e8ae5b;
+    lightyellow:     #ffa75d;
+    //-
+    // Blue
+    blue:      #6495ed;
+    lightblue:     #2b313a;
+    //
+    // Magenta
+    magenta:      #deb887;
+    lightmagenta:     #996600;
+    //
+    // Cyan
+    cyan:      #b0c4de;
+    lightcyan:     #b0c4de;
+    //
+    // White
+    white:      #eeffee;
+    lightwhite:     #ddccbb;
+    //
+    // Bold, Italic, Underline
+    highlight:     bold #ffffff;
+}
+#window {
+    location: center;
+    anchor:   north;
+    y-offset: -5em;
+}
+#window box {
+    padding: 10px;
+    border:  1px;
+    foreground: @white;
+    background: #cc1c1c1c;
+}
+
+
+#window mainbox inputbar {
+    background: @background;
+    text: @white;
+    padding: 0px;
+}
+#window mainbox inputbar box {
+    border: 0px 0px 2px 0px;
+}
+#window mainbox box {
+    spacing: 0.3em;
+}
+
+#window mainbox listview {
+    fixed-height: 3;
+    border:       0px 0px 0px ;
+    columns:      10;
+    padding:      0px 0px 0px ;
+}
+#window mainbox listview element selected  normal {
+    background: @barback;
+}
+#window mainbox listview element normal active {
+    foreground: @barback;
+}
+#window mainbox listview element normal urgent {
+    foreground: @lightred;
+}
+#window mainbox listview element alternate normal {
+}
+#window mainbox listview element alternate active {
+    foreground: @barback;
+}
+#window mainbox listview element alternate urgent {
+    foreground: @lightred;
+}
+#window mainbox listview element selected active {
+    background: @barback;
+    foreground: @dark;
+    padding: 0px;
+    padding:      3px 0px 0px ;
+    border:  1px;
+    foreground: @white;
+}
+#window mainbox listview element selected urgent {
+    background: @white;
+    foreground: @dark;
+}
+#window mainbox listview element normal normal {
+
+}
